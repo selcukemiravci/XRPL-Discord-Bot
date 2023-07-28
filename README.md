@@ -7,5 +7,4 @@ Monday, July 31st @ 8am - 9am PT
 
 Highly encourage all participants to join to learn more about how to interact with the XRPL for your projects
 
-
-[doc](https://docs.google.com/document/d/1QKb7IOxYfi0bLZ8MTtfOdAr3KZsdndZDbE8Ax2lclcg/edit)
+AI Newsletter trained on XRPL Discord and Twitter news shared in a slack channel for employees to keep up with the community and learn the newest updates on the XRPL ecosystem.
