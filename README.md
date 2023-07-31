@@ -1,4 +1,5 @@
-# ripple-intern-hackathon-2023
+# Ripple Intern Hackathon 2023
+
 New Hackathon Dates: Monday, July 31st - Monday, August 7th 
 
 Kick Off Meeting hosted by Jason Tigas (Developer Advocate): 
@@ -19,7 +20,6 @@ Technical Implementation
 Educational Video
 User Experiencer
 Potential for Internal Adoption
-
 
 ##  Submission 
 
