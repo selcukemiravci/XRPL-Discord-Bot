@@ -1,4 +1,7 @@
-first clone the repository. and cd ripple-intern-hackathon-2023
+first clone the repository and run
 
-run npm install discord.js
-run npm install --save dotenv
+      cd ripple-intern-hackathon-2023
+      npm install discord.js
+      npm install --save dotenv
+
+
