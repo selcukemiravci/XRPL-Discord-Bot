@@ -26,6 +26,10 @@ client.on('messageCreate', (msg) => {
     if (msg.content === 'ping') {
         msg.reply('pong');
     }
+
+    if (msg.content === 'what is xrp?') {
+      msg.reply('XRP is the native cryptocurrency of the XRP Ledger. All accounts in the XRP Ledger can send XRP among one another and must hold a minimum amount of XRP as a reserve. XRP can be sent directly from any XRP Ledger address to any other. This helps make XRP a convenient bridge currency.');
+    }
 });
 
 // discord bot token password
