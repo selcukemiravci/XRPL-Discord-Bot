@@ -1,5 +1,6 @@
 """
-@package chat.py
+@package        chat.py
+
 @description    query with gpt-3 and return response
 
                 <ACTION> someone messages the bot in a discord channel
@@ -15,7 +16,6 @@
 @dependencies   pip install openai
                 pip install chromadb
                 pip install tiktoken
-
 """
 
 import os
@@ -26,12 +26,13 @@ from langchain.indexes import VectorstoreIndexCreator
 
 os.environ["OPENAI_API_KEY"] = constants.APIKEY
 
-# Get the question from the command-line argument
+# get the question from the command-line argument
 query = sys.argv[1]
 
 print(query)
 
 loader = TextLoader('data.txt')
+
 index = VectorstoreIndexCreator().from_loaders([loader])
 
 print(index.query(query))
