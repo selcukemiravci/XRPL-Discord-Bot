@@ -1,11 +1,4 @@
-# Ripple Intern Hackathon 2023
-
-
-
-
-
-
-
+# XRPL Intelligence
 
 
 AI Newsletter trained on XRPL Discord news shared in a slack channel for employees to keep up with the community and learn the newest updates on the XRPL ecosystem.
@@ -14,14 +7,14 @@ AI Newsletter trained on XRPL Discord news shared in a slack channel for employe
 
 
 <details>
-  <summary>Event Info</summary>
+  <summary>Ripple Intern Hackathon Event Info</summary>
 
 ###  General
 
-Dates:  Monday, July 31st - Monday, August 7th 
-Event:  Monday, July 31st @ 8am - 9am PT 
-Hosted: Jason Tigas (Developer Advocate)
-Hakathon Theme:  Education
+-  Dates:  Monday, July 31st - Monday, August 7th 
+-  Event:  Monday, July 31st @ 8am - 9am PT 
+-  Hosted: Jason Tigas (Developer Advocate)
+-  Hakathon Theme:  Education
 
 ###  Judging Criteria
 
