@@ -15,6 +15,7 @@ AI Newsletter trained on XRPL Discord news shared in a slack channel for employe
 
 <details>
   <summary>Event Info</summary>
+
 ###  General
 
 Dates:  Monday, July 31st - Monday, August 7th 
