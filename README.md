@@ -1,10 +1,15 @@
 # XRPL Intelligence
 
-
-AI Newsletter trained on XRPL Discord news shared in a slack channel for employees to keep up with the community and learn the newest updates on the XRPL ecosystem.
-
+Discord AI chatbot trained on XRPL Documentation and shared in a discord channel for XRPL developers to learn more about the XRPL ecosystem.
 
 
+###  Front-end:  Discord Bot
+
+The Discord bot serves as the front-end in our application.  It's responsible for receiving messages from users in the Discord channel, handling user interactions, and sending responses back to the channel.
+
+###  Back-end:  Python Scripts
+
+The python script acts as the back-end.  It's responsible for processing the user's questions, querying the openai api to generate responses, and provides the response back to the discord bot.
 
 <details>
   <summary>Ripple Intern Hackathon Event Info</summary>
