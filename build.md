@@ -11,10 +11,14 @@ Clone the repository and run
       cd ripple-intern-hackathon-2023
       npm install discord.js
       npm install --save dotenv
-      npm install -S langchain
-      yarn add cheerio
+      pip3 install openai
+      pip3 install chromadb
+      pip3 install tiktoken
+      pip3 install langchain
 
-`nodemon index.js` to run the bot 
+Run `nodemon` on the terminal to run the bot 
+
+You will need to create a constants.py and .env file in src directory.
 
 Note: In the `package.json` file, make sure the "main" field is pointing to the correct location of index.js
 Contact us if you want access to the token in .env)
