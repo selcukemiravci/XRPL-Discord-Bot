@@ -78,4 +78,4 @@ Sign up for a 15-minute slot using the form pinned.
 <a name="notes"></a>
 ## Notes
 
-This project is developed for educational purposes and to provide a hands-on way for users to learn more about NFTs and the XRPL ecosystem. It may need modifications for production use, such as handling the cases where the user does not claim the NFT within a specified timeframe.
+This project is developed for educational purposes and to provide a hands-on way for users to learn more about the XRPL ecosystem.
