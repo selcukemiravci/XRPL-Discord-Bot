@@ -25,16 +25,14 @@ client.on('messageCreate', async (msg) => {
     if (msg.author.bot) {
         return;
     }
-
     // Check if the message is "Claim NFT" (case insensitive)
     // If so, attach the "ClaimNFT.png" image from the assets directory and send it
     // Then return to prevent executing any further code in this callback
     if (msg.content.toLowerCase() === 'claim nft') {
-        const image = new MessageAttachment('./assets/ClaimNFT.png');
-        msg.channel.send({ files: [image] }); 
-        return;
+        const image = new MessageAttachment('./assets/ClaimNFT.png'); // Create a new attachment using the image file
+        msg.reply({ files: [image] }); // Reply to the message with the image
     }
-
+        
     // Check if the message starts with "!ask" command
     if (msg.content.startsWith('!ask')) {
         const question = msg.content.slice(5).trim(); 
