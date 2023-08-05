@@ -1,7 +1,7 @@
 // index.js
 // Import required packages and modules
 require('dotenv').config();
-const { Client, IntentsBitField, MessageAttachment } = require('discord.js'); // Import MessageAttachment for sending images
+const { Client, IntentsBitField, MessagePayload } = require('discord.js');
 const { spawn } = require('child_process');
 
 // Initialize a new Discord client
@@ -29,9 +29,11 @@ client.on('messageCreate', async (msg) => {
     // If so, attach the "ClaimNFT.png" image from the assets directory and send it
     // Then return to prevent executing any further code in this callback
     if (msg.content.toLowerCase() === 'claim nft') {
-        const image = new MessageAttachment('./assets/ClaimNFT.png'); // Create a new attachment using the image file
-        msg.reply({ files: [image] }); // Reply to the message with the image
+        const payload = new MessagePayload(msg.channel, { files: ['./assets/ClaimNFT.png'] });
+        msg.reply(payload);
+        return;
     }
+    
         
     // Check if the message starts with "!ask" command
     if (msg.content.startsWith('!ask')) {
