@@ -59,11 +59,11 @@ client.on('messageCreate', async (msg) => {
             const recipientAddress = userStates[msg.author.id].data.recipientAddress;
             const reward = userStates[msg.author.id].data.amount;
 
-            try {
+             try {
                 const transactionId = await transferXRP(recipientAddress, reward);
                 msg.reply(`Your ${reward} XRP has been sent to ${recipientAddress}. Please wait a few minutes for the transaction to be confirmed on the XRP ledger.
-                           To verify the transaction on the XRP ledger, please click [here](https://bithomp.com/explorer/${transactionId}) or navigate to the following link:
-                           https://bithomp.com/explorer/${transactionId}
+                           To verify the transaction on the XRP testnet ledger, please click [here](https://testnet.xrpl.org/accounts/${recipientAddress}) or navigate to the following link:
+                           https://testnet.xrpl.org/accounts/${recipientAddress}
                            We recommend checking the link to ensure your transaction has been successfully validated.`);
             } catch (error) {
                 msg.reply('There was an error transferring your reward. Please try again later.');
