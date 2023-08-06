@@ -1,0 +1,255 @@
+
+<style>
+  .hide {
+    display: none !important;
+  }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic metadata and title of the webpage -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XRPL Experience - Claim your NFT</title>
+    <link rel="icon" type="image/x-icon" href="xrpl.png">
+
+    <!-- Firebase Scripts: Used for database and other backend services -->
+    <script defer src="/__/firebase/9.19.1/firebase-app-compat.js"></script>
+    <script defer src="/__/firebase/9.19.1/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.19.1/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.19.1/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <!-- Bootstrap CSS for styling and layout -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome CSS for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <!-- Link to the separate CSS file -->
+    <link rel="stylesheet" type="text/css" href="styles.css"></head>
+<body>
+  <div id="content">
+    <!-- Main content of the page inside a Bootstrap container for alignment -->
+    <div class="container h-100">
+      <div class="container custom-container">
+        <div class="d-flex flex-column justify-content-between custom-content">
+            <!-- Hidden elements (for potential use later) -->
+            <h1 id="addressArea" class="hide"></h1>
+            <h1 class="header">🚀 Welcome to the XRPL Discord Experience! 🌌</h1>
+        
+            <div class="text-center">
+              <p>Join our <span style="font-weight: bold; color: #020202;">XRPL Pioneer Discord Bot Experience</span> 🤖. As a pioneer, seize the chance to claim a unique <span style="font-weight: bold; color: #000000;">AI-generated NFT</span> symbolizing your XRPL journey 🌠.</p>
+              <p>With <span style="font-weight: bold; color: #10100f;">limited pieces</span>, don't miss out! Click below to claim your Discord Experience XLS-20 NFT 🎉. Be part of the XRPL legacy 🌍!</p>
+          </div>
+            
+            <!-- Button to initiate NFT claiming process -->
+            <div class="button-center">
+              <button class="btn btn-lg" id="getNFT"><i class="fas fa-gift"></i> Claim NFT</button>
+          </div>
+            <!-- The transferring message -->
+            <p id="xrplMsg" class="hide"></p>
+            <!-- Placeholder for error messages -->
+            <div class="alert alert-danger hide" id="errorMessage" role="alert"></div>
+            <!-- Logout button (hidden initially) -->
+            <button class="btn btn-secondary btn-sm mt-3 hide" id="logout">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Footer with a link to more information about XRPL NFTs -->
+    <footer>
+        <a href="https://xrpl.org/nftokencreateoffer.html" style="color: #E0E1DD;">Learn More About XRPL NFTs</a>
+    </footer>
+    <script type="module">
+      import 'https://xumm.app/assets/cdn/xumm-oauth2-pkce.min.js?v=2.7.1'
+    
+      const queryParams = new URLSearchParams(window.location.search);
+      const taxonidParam = queryParams.get('taxonid');
+      console.log("taxonidParam = " + taxonidParam);
+    
+      function startLoadingMessage(address) {
+      const loadingMessageElement = document.getElementById("xrplMsg");
+      loadingMessageElement.innerText = "Transferring Discord Experience NFT... to " + address;
+      loadingMessageElement.classList.remove('hide'); // Show the loading message
+      setTimeout(() => {
+          stopLoadingMessage();
+          showSuccessMessage();
+      }, 20000); // After 5 seconds, hide the loading message and show the success message
+      }
+    
+      function stopLoadingMessage() {
+        const loadingMessageElement = document.getElementById("xrplMsg");
+        loadingMessageElement.innerText = "";
+        loadingMessageElement.classList.add('hide'); // Hide the loading message
+      }    
+    
+      function redirectToXRPLDocs() {
+        setTimeout(function () {
+          window.location.href = "https://xrpl.org/nftokencreateoffer.html?utm_source=workshop&utm_medium=jason-morgan-state-mar-23&utm_campaign=dev-advocacy";
+        }, 15000); // Will call the function after 15 secs.
+      }      
+    
+      function showError(message) {
+        var errorMessageElement = document.getElementById('errorMessage');
+        errorMessageElement.innerHTML = message;
+        errorMessageElement.classList.remove('hide'); // Show error message
+      }
+    
+      const xumm = new XummPkce('XUMM API KEY', {
+        implicit: true, // Implicit: allows to e.g. move from social browser to stock browser
+        redirectUrl: document.location.href + '&custom_state=test'
+      })
+    
+      document.getElementById('getNFT').onclick = async () => {
+        startLoadingMessage();
+        document.getElementById('logout').classList.remove('hide'); // Show the logout button
+        try {
+            await xumm.authorize();
+        } catch (e) {
+            console.log('e', e);
+            stopLoadingMessage();
+        }
+      }
+    
+      xumm.on("error", (error) => {
+        console.log("error", error);
+      })    
+
+      
+
+function showSuccessMessage() {
+  const loadingMessageElement = document.getElementById("xrplMsg");
+  loadingMessageElement.innerText = "The offer is created successfully, please accept the request in your XUMM Wallet! 🪂 🎁";
+  loadingMessageElement.style.backgroundColor = "rgba(0, 0, 0, 0.7)"; // Transparent black background
+  loadingMessageElement.style.color = "#FFFFFF"; // White text color
+  loadingMessageElement.style.padding = "20px"; // Padding for aesthetics
+  loadingMessageElement.style.borderRadius = "5px"; // Rounded corners
+  loadingMessageElement.style.textAlign = "center"; // Center the text
+  loadingMessageElement.classList.remove('hide'); // Show the success message
+}
+      xumm.on("success", async () => {
+        const state = await xumm.state();
+        if (state?.me?.sub) {
+            startLoadingMessage(state?.me?.sub);  // Passing address to the function
+            console.log("Success");
+            document.getElementById('addressArea').innerText = state?.me?.sub;
+            document.getElementById('getNFT').classList.add('hide'); // Hide the "Claim NFT" button after a successful transaction
+            console.log("XUMM State:", state);
+
+            const claimNFT = firebase.functions().httpsCallable('claimNFT');
+            try {
+                const result = await claimNFT({ address: state?.me?.sub, taxonid: taxonidParam }); // Send to claim the nft
+            } catch (error) {
+                console.log(error);
+                console.log(error.code);
+            }
+        } else {
+            console.error("XRP address is missing or undefined!");
+        }        
+    });
+
+      document.getElementById('logout').onclick = () => {
+          xumm.logout();
+          document.getElementById('addressArea').innerText = '';
+          document.getElementById('xrplMsg').innerText = '';
+          document.getElementById('xrplMsg').style.backgroundColor = "initial"; // Reset the background color
+          document.getElementById('getNFT').classList.remove('hide'); // Show the "Claim NFT" button
+          document.getElementById('logout').classList.add('hide'); // Hide the logout button
+          document.getElementById('errorMessage').classList.add('hide'); // Hide the error message
+      }
+
+    xumm.on("retrieved", async () => {
+        console.log("Retrieved: from localStorage or mobile browser redirect");
+        const state = await xumm.state();
+        document.getElementById('addressArea').innerText = state?.me?.sub;
+        document.getElementById('logout').classList.remove('hide'); // Show logout button after a successful transaction
+        redirectToXRPLDocs();
+    })
+
+    </script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script> 
+  
+<script>
+    document.getElementById('getNFT').onclick = () => {
+        document.getElementById('getNFT').classList.add('hide'); // Hide the "Claim NFT" button when clicked
+    }
+
+    document.getElementById('logout').onclick = () => {
+        document.getElementById('getNFT').classList.remove('hide'); // Show the "Claim NFT" button when "Logout" is clicked
+    }
+    
+    // When the page is refreshed, show the "Claim NFT" button
+    window.onload = () => {
+        document.getElementById('getNFT').classList.remove('hide');
+    }
+</script>
+
+
+<script>
+  document.getElementById('getNFT').onclick = () => {
+    document.getElementById('getNFT').classList.add('hide'); // Hide the "Claim NFT" button when clicked
+  };
+
+  document.getElementById('logout').onclick = () => {
+    document.getElementById('getNFT').classList.remove('hide'); // Show the "Claim NFT" button on logout
+    // Existing logout logic
+  };
+
+  // Show the "Claim NFT" button on page refresh
+  window.onload = () => {
+    document.getElementById('getNFT').classList.remove('hide');
+  };
+</script>
+
+<script>
+  document.getElementById('getNFT').onclick = () => {
+    document.getElementById('getNFT').classList.add('hide'); // Hide the "Claim NFT" button when clicked
+  };
+
+  document.getElementById('logout').onclick = () => {
+    document.getElementById('getNFT').classList.remove('hide'); // Show the "Claim NFT" button on logout
+    // Existing logout logic
+  };
+
+  // Show the "Claim NFT" button on page refresh
+  window.onload = () => {
+    document.getElementById('getNFT').classList.remove('hide');
+  };
+</script>
+
+<script>
+  // Hide the "Claim NFT" button when clicked
+  document.getElementById('getNFT').addEventListener('click', function() {
+    this.style.display = 'none';
+  });
+
+  // Show the "Claim NFT" button on logout
+  document.getElementById('logout').addEventListener('click', function() {
+    document.getElementById('getNFT').style.display = 'block';
+  });
+
+  // Show the "Claim NFT" button on page refresh
+  window.addEventListener('load', function() {
+    document.getElementById('getNFT').style.display = 'block';
+  });
+</script>
+<script>
+  document.getElementById('getNFT').onclick = () => {
+    document.getElementById('getNFT').classList.add('hide'); // Hide the "Claim NFT" button when clicked
+  };
+
+  document.getElementById('logout').onclick = () => {
+    document.getElementById('getNFT').classList.remove('hide'); // Show the "Claim NFT" button on logout
+    // Existing logout logic
+  };
+
+  // Show the "Claim NFT" button on page refresh
+  window.onload = () => {
+    document.getElementById('getNFT').classList.remove('hide');
+  };
+</script>
+</body>
+</html>

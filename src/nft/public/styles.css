@@ -1,0 +1,135 @@
+body, html {
+  height: 100%; /* Full viewport height */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color: #E0E1DD;
+}
+
+.btn {
+  background-color: #171619;
+  color: #E0E1DD;
+}
+
+.btn img {
+  width: 30px;
+  height: 30px;
+  margin-right: 2px;
+}
+
+.hide {
+  display: none;
+}
+
+#content {
+  flex: 1 0 auto; /* Flex grow, shrink, basis */
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  flex-shrink: 0; /* Prevents the footer from shrinking */
+  width: 100%; /* Full width */
+  text-align: center;
+  background-color: #000000;
+  color: white;
+  padding: 10px 0;
+}
+.container {
+  flex-grow: 1; /* It will take up any remaining space */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* distribute items evenly, with equal space around them */
+}
+
+.header {
+  display: flex;
+  justify-content: center; /* Horizontally center children */
+  align-items: center; /* Vertically center children */
+  text-align: center; /* Center text */
+  height: 100%; /* Take up full height of parent */
+  font-size: 2.5em; /* Adjust according to your preference */
+  margin-top: 2em; /* Adjust according to your preference */
+}
+
+.text-center {
+  margin-top: 4em; /* Adjust according to your preference */
+}
+
+.text-center:last-of-type {
+  margin-top: 6em; /* Adjust according to your preference */
+}
+
+/* Large devices (desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+body {
+  font-size: 1.2em; /* Decreased base font size */
+}
+.container {
+  max-width: 80%; /* Adjust container width */
+}
+.header {
+  font-size: 2.5em; /* Decreased header font size */
+}
+.btn {
+  font-size: 1.2em; /* Decreased button font size */
+  padding: 15px 30px; /* Adjust button padding */
+}
+footer {
+  font-size: 1.0em; /* Change according to your needs */
+  padding: 20px 0;
+}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+body {
+  font-size: 1.2em;
+}
+.header {
+  font-size: 2.4em;
+}
+.btn {
+  font-size: 1.2em;
+  padding: 16px 32px;
+}
+footer {
+  font-size: 0.9em; /* Change according to your needs */
+  padding: 18px 0;
+}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+body {
+  font-size: 1.1em;
+}
+.header {
+  font-size: 2.2em;
+}
+.btn {
+  font-size: 1.1em;
+  padding: 14px 28px;
+}
+footer {
+  font-size: 0.8em; /* Change according to your needs */
+  padding: 14px 0;
+}
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575px) {
+body {
+  font-size: 1em;
+}
+.header {
+  font-size: 2em;
+}
+.btn {
+  font-size: 1em;
+  padding: 12px 24px;
+}
+footer {
+  padding: 14px 0;
+}
+}
