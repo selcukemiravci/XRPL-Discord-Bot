@@ -2,17 +2,19 @@
 // Import required packages and modules
 require('dotenv').config();
 const { Client, IntentsBitField, MessagePayload } = require('discord.js');
-const { spawn } = require('child_process');
+const { transferXRP } = require('./xrplTransfer'); // Ensure this path is correct.
 
 // Initialize a new Discord client
 const client = new Client({
-    intents : [
-      IntentsBitField.Flags.Guilds,
-      IntentsBitField.Flags.GuildMembers,
-      IntentsBitField.Flags.GuildMessages,
-      IntentsBitField.Flags.MessageContent,
+    intents: [
+        IntentsBitField.Flags.Guilds,
+        IntentsBitField.Flags.GuildMembers,
+        IntentsBitField.Flags.GuildMessages,
+        IntentsBitField.Flags.MessageContent,
     ],
 });
+
+const userStates = {};
 
 // Event to log once the bot is ready
 client.once('ready', () => {
@@ -25,45 +27,61 @@ client.on('messageCreate', async (msg) => {
     if (msg.author.bot) {
         return;
     }
-    // Check if the message is "Claim NFT" (case insensitive)
-    // If so, attach the "ClaimNFT.png" image from the assets directory and send it
-    // Then return to prevent executing any further code in this callback
+
+    const contentLower = msg.content.toLowerCase();
+
+    // Check for rewards inquiry
+    if (contentLower === 'check rewards') {
+        // Generate a random reward between 0 and 1 XRP.
+        const reward = (Math.random()).toFixed(4);
+        
+        if (parseFloat(reward) > 0) {
+            userStates[msg.author.id] = {
+                state: 'awaitingAddress',
+                data: { amount: reward }
+            };
+            msg.reply(`You have a reward of ${reward} XRP! Would you like to claim it? Please reply with your XRP address if you do.`);
+        } else {
+            msg.reply('You do not have any rewards at the moment.');
+        }
+        return;
+    }
+
+    if (userStates[msg.author.id] && userStates[msg.author.id].state === 'awaitingAddress') {
+        userStates[msg.author.id].data.recipientAddress = msg.content;
+        userStates[msg.author.id].state = 'awaitingConfirmation';
+        msg.reply('Please confirm the transaction by typing "confirm" or type "cancel" to abort.');
+        return;
+    }
+
+    if (userStates[msg.author.id] && userStates[msg.author.id].state === 'awaitingConfirmation') {
+        if (contentLower === 'confirm') {
+            const recipientAddress = userStates[msg.author.id].data.recipientAddress;
+            const reward = userStates[msg.author.id].data.amount;
+
+            try {
+                const transactionId = await transferXRP(recipientAddress, reward);
+                msg.reply(`Your ${reward} XRP has been sent to ${recipientAddress}. Please wait a few minutes for the transaction to be confirmed on the XRP ledger.
+                           To verify the transaction on the XRP ledger, please click [here](https://bithomp.com/explorer/${transactionId}) or navigate to the following link:
+                           https://bithomp.com/explorer/${transactionId}
+                           We recommend checking the link to ensure your transaction has been successfully validated.`);
+            } catch (error) {
+                msg.reply('There was an error transferring your reward. Please try again later.');
+            }
+
+            delete userStates[msg.author.id];
+            return;
+        } else if (contentLower === 'cancel') {
+            msg.reply('Transaction aborted.');
+            delete userStates[msg.author.id];
+            return;
+        }
+    }
+
     if (msg.content.toLowerCase() === 'claim nft') {
         const payload = new MessagePayload(msg.channel, { files: ['./assets/ClaimNFT.png'] });
         msg.reply(payload);
         return;
-    }
-    
-        
-    // Check if the message starts with "!ask" command
-    if (msg.content.startsWith('!ask')) {
-        const question = msg.content.slice(5).trim(); 
-        console.log(question); 
-
-        // If the message is "ping", reply with "pong"
-        if (msg.content === 'ping') {
-            msg.reply('pong');
-        }
-
-        // Spawn a Python child process with the question as an argument
-        const pythonProcess = spawn('python3', ['chat.py', question]);
-        let response = '';
-
-        // Listen to the "data" event of the python process's stdout stream and accumulate the data
-        pythonProcess.stdout.on('data', (data) => {
-            response += data.toString();
-        });
-
-        // Listen to the "close" event of the python process
-        pythonProcess.on('close', (code) => {
-            // If the process ended successfully, reply with the accumulated response
-            // Otherwise, log the exit code to the console
-            if (code === 0) {
-                msg.reply(response);
-            } else {
-                console.error(`Python script exited with code ${code}`);
-            }
-        });
     }
 });
 
