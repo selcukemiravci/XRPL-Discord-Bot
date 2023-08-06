@@ -15,18 +15,10 @@ async function transferXRP(recipientAddress, amount) {
     }, 10);
 
     const signed = bot_wallet.sign(prepared);
-    
-    const tx = await client.submitAndWait(signed.tx_blob);
+    await client.submitAndWait(signed.tx_blob);
 
     // Disconnect from the XRPL client after the transaction
     client.disconnect();
-
-    // Check if the transaction was successful
-    if (tx && tx.result && tx.result.engine_result === "tesSUCCESS") {
-        return tx.result.tx_json.hash;  // Returning the transaction ID
-    } else {
-        throw new Error("Transaction failed");
-    }
 }
 
 module.exports = {
