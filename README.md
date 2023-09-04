@@ -6,7 +6,6 @@
 2. [Front-end: Discord Bot](#frontend-discord-bot)
 3. [Back-end: Python Scripts](#backend-python-scripts)
 4. [NFT Claiming Feature](#nft-claiming-feature)
-5. [Ripple Intern Hackathon Event Info](#ripple-intern-hackathon-event-info)
 6. [Notes](#notes)
 
 <a name="overview"></a>
@@ -16,7 +15,6 @@ A Discord AI chatbot trained on XRPL Documentation. The bot is shared in a Disco
 
 ![Discord Experience](https://github.com/selcukemiravci/XRPL-Discord-Bot/assets/53044008/ba984894-ef5e-4c03-b896-0b67a0cdc181)
 
-
 <a name="frontend-discord-bot"></a>
 ## Front-end: Discord Bot
 
@@ -25,7 +23,7 @@ The Discord bot serves as the front-end in our application. It's responsible for
 <a name="backend-python-scripts"></a>
 ## Back-end: Python Scripts
 
-The python script acts as the back-end. It's responsible for processing the user's questions, querying the openai api to generate responses, and provides the response back to the discord bot.
+The python scripts, trained LLM and Javascript acts as the back-end. It's responsible for processing the user's questions, querying the openai api to generate responses, and provides the response back to the discord bot.
 
 <a name="nft-claiming-feature"></a>
 ## NFT Claiming Feature
@@ -48,37 +46,7 @@ One of the primary features of the bot is to allow users to claim NFTs. This pro
 <details>
   <summary><a name="ripple-intern-hackathon-event-info"></a>Ripple Intern Hackathon Event Info</summary>
 
-### General
 
-- Dates: Monday, July 31st - Monday, August 7th 
-- Event: Monday, July 31st @ 8am - 9am PT 
-- Hosted: Jason Tigas (Developer Advocate)
-- Hakathon Theme: Education
-
-### Judging Criteria
-
-- Innovation
-- Technical Implementation
-- Educational Video
-- User Experience
-- Potential for Internal Adoption
-
-### Submission Info
-
-- Email: [awilliams.ripple.com](mailto:awilliams.ripple.com)
-- Slack channel #internhackathon2023
-- Hackmentors slack channel
-
-### Office Hours
-
-- Jackson @ 11:00 am - 11:30 am PST
-- Caleb @ 1:00 pm - 1:30 pm PST
-- Jonathan @ 2:30 pm - 3:00 pm PST
-
-Sign up for a 15-minute slot using the form pinned.
-</details>
-
-<a name="notes"></a>
 ## Notes
 
 This project is developed for educational purposes and to provide a hands-on way for users to learn more about the XRPL ecosystem.
