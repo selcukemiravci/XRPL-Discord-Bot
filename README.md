@@ -1,52 +1,55 @@
-# XRPL Pioneers - Ripple Intern Hackathon Summer '23
+# 🚀 XRPL Pioneers - Ripple Intern Hackathon Summer '23 🏆
 
-## Table of Contents
+Winner of the Ripple Intern Summer 2023 Hackathon! Dive deep into the project built by passionate Ripple interns, showcasing the power and versatility of the XRPL.
 
-1. [Overview](#overview)
-2. [Front-end: Discord Bot](#frontend-discord-bot)
-3. [Back-end: Python Scripts](#backend-python-scripts)
-4. [NFT Claiming Feature](#nft-claiming-feature)
-6. [Notes](#notes)
+## 📜 Table of Contents
+
+1. [🌐 Overview](#overview)
+2. [🤖 Front-end: Discord Bot](#frontend-discord-bot)
+3. [🛠 Back-end: Python & JS Scripts](#backend-python-scripts)
+4. [🎨 NFT Claiming Feature](#nft-claiming-feature)
+5. [📝 Notes](#notes)
 
 <a name="overview"></a>
-## Overview
+## 🌐 Overview
 
-A Discord AI chatbot trained on XRPL Documentation. The bot is shared in a Discord channel for XRPL developers to learn more about the XRPL ecosystem. It can answer questions about the XRPL, initiate XRP transfers, and it also features an NFT claiming function for XRPL-developed NFTs.
+Meet our Discord AI chatbot, a savvy guide to the XRPL Documentation. Nestled in a Discord channel, it aids XRPL developers in unraveling the mysteries of the XRPL ecosystem. From answering XRPL queries to firing up XRP transfers and even featuring a nifty NFT claiming functionality for XRPL-concocted NFTs.
 
 ![Discord Experience](https://github.com/selcukemiravci/XRPL-Discord-Bot/assets/53044008/ba984894-ef5e-4c03-b896-0b67a0cdc181)
+[🎬 Watch the Demo on YouTube](https://youtu.be/o5mpGRv-b_Y)
 
 <a name="frontend-discord-bot"></a>
-## Front-end: Discord Bot
+## 🤖 Front-end: Discord Bot
 
-The Discord bot serves as the front-end in our application. It's responsible for receiving messages from users in the Discord channel, handling user interactions, and sending responses back to the channel.
+Our Discord bot is the face of the project, engaging with users in the channel, digesting their messages, and sparking lively interactions.
 
 <a name="backend-python-scripts"></a>
-## Back-end: Python Scripts
+## 🛠 Back-end: Python & JS Scripts
 
-The python scripts, trained LLM and Javascript acts as the back-end. It's responsible for processing the user's questions, querying the openai api to generate responses, and provides the response back to the discord bot.
+Beneath the surface, our Python scripts, LLM, and JavaScript dance in harmony. They chew over user inquiries, consult with the OpenAI API for witty comebacks, and relay them back to our ever-ready Discord bot.
 
 <a name="nft-claiming-feature"></a>
-## NFT Claiming Feature
+## 🎨 NFT Claiming Feature
 
-One of the primary features of the bot is to allow users to claim NFTs. This process works as follows:
+Eyes here for the pièce de résistance! Claim your XRPL-developed NFTs in a flash:
 
-1. A user types `Claim NFT` in the Discord channel.
-2. The bot triggers a process transfer a pre-minted NFT to the user that has been generated via Pintata (IPFS), Infura, Lexica Art AI, and XRPL POAP API.
-3. The NFT is then hosted on a Firebase application.
-4. The bot generates a QR code for the firebase application and sends it to the user in the Discord channel.
-5. The user can scan the QR code which redirects them to the hosted firebase application, where they can claim using Xumm Wallet.
+1. Type `Claim NFT` to the bot.
+2. It kickstarts a chain reaction, summoning a pre-minted NFT via a magical mix of Pintata (IPFS), Infura, Lexica Art AI, and XRPL POAP API.
+3. Our Firebase application becomes the NFT's new home.
+4. A QR code, your gateway to this NFT, is born and promptly shared.
+5. Scan away, be led to our Firebase haven, and claim using the Xumm Wallet.
 
-### How to Use
+### 🧐 How to Use
 
-1. Interact with the bot in Discord. You can ask questions, initiate transfers, or claim NFTs.
-2. To claim an NFT, type `Claim NFT`. The bot will provide a QR code.
-3. Scan the QR code to be redirected to the hosted NFT on Firebase.
-4. Claim your NFT.
+1. Spark a chat with our bot on Discord.
+2. For your very own NFT, type `Claim NFT` and follow the yellow brick road - or rather, the QR code.
+3. Reach the end, the hosted NFT on Firebase.
+4. Victory dance as you claim your NFT.
 
 <details>
-  <summary><a name="ripple-intern-hackathon-event-info"></a>Ripple Intern Hackathon Event Info</summary>
+  <summary>🎉 Ripple Intern Hackathon Event Info</summary>
 
+<a name="notes"></a>
+## 📝 Notes
 
-## Notes
-
-This project is developed for educational purposes and to provide a hands-on way for users to learn more about the XRPL ecosystem.
+Crafted with love and education in mind, this project is our ode to the XRPL ecosystem and its ever-curious learners.
