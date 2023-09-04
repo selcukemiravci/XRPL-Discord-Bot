@@ -45,12 +45,9 @@ Eyes here for the pièce de résistance! Claim your XRPL-developed NFTs in a fla
 3. Reach the end, the hosted NFT on Firebase.
 4. Victory dance as you claim your NFT.
 
-<details>
-  <summary>🎉 Ripple Intern Hackathon Event Info</summary>
-
 <a name="notes"></a>
 ## 📝 Notes
 
 [🎬 Watch the Demo on YouTube](https://youtu.be/o5mpGRv-b_Y)
 
-Crafted with love and education in mind, this project is our ode to the XRPL ecosystem and its ever-curious learners.
+Crafted with love and education in mind, this project is our commitment to the XRPL ecosystem and its ever-curious learners.
