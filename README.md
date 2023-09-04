@@ -14,6 +14,9 @@
 
 A Discord AI chatbot trained on XRPL Documentation. The bot is shared in a Discord channel for XRPL developers to learn more about the XRPL ecosystem. It can answer questions about the XRPL, initiate XRP transfers, and it also features an NFT claiming function for XRPL-developed NFTs.
 
+![Discord Experience](https://github.com/selcukemiravci/XRPL-Discord-Bot/assets/53044008/ba984894-ef5e-4c03-b896-0b67a0cdc181)
+
+
 <a name="frontend-discord-bot"></a>
 ## Front-end: Discord Bot
 
