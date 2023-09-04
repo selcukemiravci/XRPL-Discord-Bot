@@ -31,6 +31,7 @@ Beneath the surface, our Python scripts, LLM, and JavaScript dance in harmony. T
 ## 🎨 NFT Claiming Feature
 
 Eyes here for the pièce de résistance! Claim your XRPL-developed NFTs in a flash:
+![NFT Claiming Experience](https://github.com/selcukemiravci/XRPL-Discord-Bot/assets/53044008/ab4a53de-d0b3-42ee-b3ed-10aef3b9f624)
 
 1. Type `Claim NFT` to the bot.
 2. It kickstarts a chain reaction, summoning a pre-minted NFT via a magical mix of Pintata (IPFS), Infura, Lexica Art AI, and XRPL POAP API.
