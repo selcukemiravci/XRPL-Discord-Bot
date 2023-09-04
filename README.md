@@ -16,7 +16,6 @@ Winner of the Ripple Intern Summer 2023 Hackathon! Dive deep into the project bu
 Meet our Discord AI chatbot, a savvy guide to the XRPL Documentation. Nestled in a Discord channel, it aids XRPL developers in unraveling the mysteries of the XRPL ecosystem. From answering XRPL queries to firing up XRP transfers and even featuring a nifty NFT claiming functionality for XRPL-concocted NFTs.
 
 ![Discord Experience](https://github.com/selcukemiravci/XRPL-Discord-Bot/assets/53044008/ba984894-ef5e-4c03-b896-0b67a0cdc181)
-[🎬 Watch the Demo on YouTube](https://youtu.be/o5mpGRv-b_Y)
 
 <a name="frontend-discord-bot"></a>
 ## 🤖 Front-end: Discord Bot
@@ -51,5 +50,7 @@ Eyes here for the pièce de résistance! Claim your XRPL-developed NFTs in a fla
 
 <a name="notes"></a>
 ## 📝 Notes
+
+[🎬 Watch the Demo on YouTube](https://youtu.be/o5mpGRv-b_Y)
 
 Crafted with love and education in mind, this project is our ode to the XRPL ecosystem and its ever-curious learners.
