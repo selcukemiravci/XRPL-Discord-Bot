@@ -9,7 +9,7 @@ Winner of the Ripple Intern Summer 2023 Hackathon! Dive deep into the project bu
 3. [🛠 Back-end: Python & JS Scripts](#backend-python-scripts)
 4. [🎨 NFT Claiming Feature](#nft-claiming-feature)
 5. [📝 Notes](#notes)
-
+ 
 <a name="overview"></a>
 ## 🌐 Overview
 
